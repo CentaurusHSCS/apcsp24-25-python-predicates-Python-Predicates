@@ -6,50 +6,73 @@ import pytest
 
 # is x between a and b
 def between(x, a, b):
-  pass
-  return True
+  if x >= a and x <= b:
+    return True
+  else:
+    return False
   
 # is x divisibleBy a ?
 def isDivisibleBy(x, a):
-  
-  return False
+  if a == 0:
+    return False
+  if x % a == 0:
+    return True
+  else:
+    return False
   
 # is x even?
 def isEvenNumber(x):
-  return False
+  if x % 2 == 0:
+    return True
+  else:
+    return False
   
 # is x odd?
 def isOddNumber(x):
-  return False
+  return not isEvenNumber(x)
   
 # this is done
 def isInteger(x):
-  return False  # no change needed here
+  if x != int(x):
+    return False
+  else:
+    return True
 
 # withinRadius is the point (x1,y1) within distance of the point (x2, y2)
 def withinRadius(x1, y1, x2, y2, distance):
-  # t1.xcor()   t2.xcor()
-  # t1.ycor()   t2.ycor()
-  return False
+  if ((y1-y2)**2 + (x1-x2)**2)**0.5 <= distance:
+    return True
+  else:
+    return False
   
 # do the sides a, b, c make a Pythagorean triangle
 # remember the Pythagorean theorem
 def isPythagorean(a, b, c):
-  return False
+  if a**2 + b**2 == c**2:
+    return True
+  else:
+    return False
   
 # is number a prime number
 # I suggest using a loop here
 def isPrime(number):
-  
-  return True
+  primeNumbers = [2,3,5,7,11,13,17,19,23,29,31]
+  prime = False
+  for i in range(len(primeNumbers)):
+    if number == primeNumbers[i]:
+      prime = True
+      break
+  return prime
   
 # is (x, y) a point with in the circle defined by (cx, cy) and radius
 # think about the circle equation (x-h)^2 + (y-k) ^2 = r^2
 # where h,k is the center and x,y is point 
 # 
 def pointWithinCircle(x, y, cx, cy, radius):
-
-  return False
+  if withinRadius(x, y, cx, cy, radius):
+    return True
+  else:
+    return False
 
 
 # put test cases here
